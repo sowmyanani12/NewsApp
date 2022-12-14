@@ -84,7 +84,7 @@
                         android:id="@+id/newsSourceName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@{news.source.sourceName}"
+                        android:text=""
                         android:textAllCaps="true"
                         android:textAppearance="@style/TextAppearance.AppCompat.Caption"
                         android:textColor="@color/grey_40"
@@ -99,7 +99,7 @@
                         android:id="@+id/newsPublishDate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@{news.newsPublishedDate}"
+                        android:text=""
                         android:textAppearance="@style/TextAppearance.AppCompat.Caption"
                         android:textColor="@color/grey_40" />
 

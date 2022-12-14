@@ -89,7 +89,7 @@ public class MainViewModel extends ViewModel {
             public void onResponse(Call<TotalNews> call, Response<TotalNews> response) {
                 if (response.body() != null) {
                     TotalNews totalNews = response.body();
-                    executor.execute(() -> DatabaseEngine.getInstance().getDBInstance().memoriesDao().insertAll(totalNews.getNewsList()));
+//                    executor.execute(() -> DatabaseEngine.getInstance().getDBInstance().memoriesDao().insertAll(totalNews.getNewsList()));
                     fillNewsList(totalNews);
                 }
             }
@@ -103,6 +103,7 @@ public class MainViewModel extends ViewModel {
 
     private void fillNewsList(TotalNews totalNews) {
         newsList.addAll(totalNews.getNewsList());
+        executor.execute(() -> DatabaseEngine.getInstance().getDBInstance().memoriesDao().insertAll(newsList));
         newsLiveData.setValue(newsList);
     }
 

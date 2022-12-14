@@ -6,7 +6,7 @@ apply plugin: 'com.jakewharton.butterknife'
 
 android {
     compileSdkVersion 30
-    buildToolsVersion "30.0.2"
+//    buildToolsVersion "30.0.2"
 
     defaultConfig {
         applicationId "com.project.newsapp"
@@ -57,7 +57,7 @@ dependencies {
     //Gson
     implementation 'com.google.code.gson:gson:2.8.6'
 
-    //ButterKnife
+//    //ButterKnife
     implementation 'com.jakewharton:butterknife:10.2.3'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
 
@@ -72,7 +72,7 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
     implementation 'com.squareup.okhttp:okhttp:2.7.2'
 
-    def room_version = "2.4.3"
+    def room_version = "2.3.0"
 
     implementation "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"

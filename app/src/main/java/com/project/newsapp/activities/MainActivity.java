@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity implements LifecycleOwner, A
         viewModel = ViewModelProviders.of(context).get(MainViewModel.class);
         viewModel.getNewsLiveData().observe(context, newsListUpdateObserver);
         viewModel.setApiKey(getString(R.string.news_api_key));
-        viewModel.setCountryCode(pref.getString(Util.COUNTRY_PREF, "tr"));
+        viewModel.setCountryCode(pref.getString(Util.COUNTRY_PREF, "gb"));
 
 
     }
@@ -176,7 +176,8 @@ public class MainActivity extends AppCompatActivity implements LifecycleOwner, A
     }
 
     public void countryClick(View view) {
-        showLanguageDialog();
+//        showLanguageDialog();
+        startActivity(new Intent(this, HistoryActivity.class));
     }
 
     Observer<List<News>> newsListUpdateObserver = new Observer<List<News>>() {

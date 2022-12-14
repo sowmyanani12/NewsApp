@@ -40,6 +40,12 @@ public class AdapterListNews extends RecyclerView.Adapter<AdapterListNews.NewsVi
         return items.size();
     }
 
+    public void updateNewsList(List items) {
+        this.items.clear();
+        this.items.addAll(items);
+        notifyDataSetChanged();
+    }
+
     private News getItem(int position) {
         return items.get(position);
     }

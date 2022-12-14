@@ -5,6 +5,8 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.databinding.BindingAdapter;
 import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
 
 import com.bumptech.glide.Glide;
 import com.google.gson.annotations.SerializedName;
@@ -16,27 +18,28 @@ import java.util.Locale;
 @Entity(tableName = "News")
 public class News {
 
-    @NonNull
+    @PrimaryKey(autoGenerate = true)
+    private int id;
+
+    @Ignore
+//    @Embedded
     @SerializedName("source")
     private Source source;
 
-    @NonNull
     @SerializedName("title")
     private String newsTitle;
 
-    @NonNull
     @SerializedName("description")
     private String newsDescription;
 
-    @NonNull
     @SerializedName("url")
     private String newsUrl;
 
-    @NonNull
     @SerializedName("urlToImage")
     private String newsImage;
 
-    @NonNull
+    @Ignore
+//    @Embedded
     @SerializedName("publishedAt")
     private Date newsPublishedDate;
 
@@ -94,7 +97,16 @@ public class News {
         this.newsPublishedDate = newsPublishedDate;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     //Added for Child JSON Object
+    @Entity
     public class Source {
         @SerializedName("name")
         private String sourceName;
