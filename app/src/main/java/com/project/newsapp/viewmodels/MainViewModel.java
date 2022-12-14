@@ -3,6 +3,7 @@ package com.project.newsapp.viewmodels;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.project.newsapp.db.DatabaseEngine;
 import com.project.newsapp.model.News;
 import com.project.newsapp.model.TotalNews;
 import com.project.newsapp.restapi.ApiClient;
@@ -11,6 +12,8 @@ import com.project.newsapp.utils.Util;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -22,6 +25,7 @@ public class MainViewModel extends ViewModel {
     private List<News> newsList;
     private String countryCode;
     private String apiKey;
+    Executor executor = Executors.newSingleThreadExecutor();
 
     public MainViewModel() {
         newsLiveData = new MutableLiveData<>();
@@ -85,6 +89,7 @@ public class MainViewModel extends ViewModel {
             public void onResponse(Call<TotalNews> call, Response<TotalNews> response) {
                 if (response.body() != null) {
                     TotalNews totalNews = response.body();
+                    executor.execute(() -> DatabaseEngine.getInstance().getDBInstance().memoriesDao().insertAll(totalNews.getNewsList()));
                     fillNewsList(totalNews);
                 }
             }

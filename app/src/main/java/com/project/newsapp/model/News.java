@@ -4,6 +4,7 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.BindingAdapter;
+import androidx.room.Entity;
 
 import com.bumptech.glide.Glide;
 import com.google.gson.annotations.SerializedName;
@@ -12,6 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+@Entity(tableName = "News")
 public class News {
 
     @NonNull

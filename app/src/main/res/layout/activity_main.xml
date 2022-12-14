@@ -46,7 +46,19 @@
                         android:focusable="true"
                         android:onClick="countryClick"
                         android:padding="@dimen/spacing_medium"
+                        android:visibility="gone"
                         android:src="@drawable/ic_turkey" />
+
+                    <ImageView
+                        android:id="@+id/ivToolbarHistory"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.1"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:onClick="countryClick"
+                        android:padding="@dimen/spacing_medium"
+                        android:src="@android:drawable/ic_menu_recent_history" />
 
                     <LinearLayout
                         android:layout_width="0dp"
